@@ -1,0 +1,29 @@
+{
+  "name": "ramda-koans",
+  "version": "1.0.0",
+  "description": "\"A collection of koans to introduce functional programming and RamdaJS\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eccentric-j/ramda-koans.git"
+  },
+  "keywords": [
+    "ramda",
+    "koans",
+    "functional"
+  ],
+  "author": "Eccentric J <jayzawrotny@gmail.com>",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/eccentric-j/ramda-koans/issues"
+  },
+  "homepage": "https://github.com/eccentric-j/ramda-koans#readme",
+  "dependencies": {
+    "expect": "^25.2.7",
+    "mocha": "^7.1.1",
+    "ramda": "^0.27.0"
+  }
+}
