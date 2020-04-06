@@ -4,7 +4,7 @@
   "description": "\"A collection of koans to introduce functional programming and RamdaJS\"",
   "main": "index.js",
   "scripts": {
-    "test": "npx mocha test"
+    "test": "npx mocha --bail --watch courses/**/*.js"
   },
   "repository": {
     "type": "git",
