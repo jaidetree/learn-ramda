@@ -4,8 +4,10 @@ const expect = require("expect");
 const quiz = require("../../lib/quiz");
 
 describe("Course 1 - Ramda Basics :: Lesson 1 - Intro", () => {
-  describe("1. Ramda is... ?", () => {
-    const statements = {
+  quiz.multipleChoice({
+    id: "1.1",
+    question: "1. Ramda is... ?",
+    choices: {
       a: "an eastern cuisine",
       b: "a framework to make websites",
       c: "a library, consisting of many pure functions that operate on common JS data structures",
@@ -88,12 +90,15 @@ describe("Course 1 - Ramda Basics :: Lesson 1 - Intro", () => {
   });
 
   describe("5. map", () => {
-    describe("5.1 Map is a higher-order-function meaning it...", () => {
-      const statements = {
+    quiz.multipleChoice({
+      id: "1.5.1",
+      question: "5.1 Map is a higher-order-function meaning it...",
+      choices: {
         a: "requires an interface very specific to ramda",
         b: "takes a function as arguments or returns a function",
         c: "renders a verdict in a court of its peers",
         d: "sorts arguments by type",
+
       };
       const yourAnswer = "b"; // a, b, c, or d
       const answer = quiz.selectAnswer(statements, yourAnswer);
