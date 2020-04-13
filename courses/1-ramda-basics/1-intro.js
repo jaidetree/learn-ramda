@@ -4,28 +4,16 @@ const expect = require("expect");
 const quiz = require("../../lib/quiz");
 
 describe("Course 1 - Ramda Basics :: Lesson 1 - Intro", () => {
-  describe("1. Ramda is... ?", () => {
-    const statements = {
+  quiz.multipleChoice({
+    id: "1.1",
+    question: "1. Ramda is... ?",
+    choices: {
       a: "an eastern cuisine",
       b: "a framework to make websites",
       c: "a library, consisting of many pure functions that operate on common JS data structures",
       d: "the pinnacle of functional programming",
-    };
-    const yourAnswer = "_"; // a, b, c, or d
-    const answer = quiz.selectAnswer(statements, yourAnswer);
-
-    if (yourAnswer === "_") {
-      it("Select an answer", () => {
-        expect(yourAnswer).toMatch("a|b|c|d");
-      });
-    }
-
-    it(answer, () => {
-      expect(yourAnswer + ": " + answer).toBe(quiz.expectChoice(
-        statements,
-        63,
-      ));
-    });
+    },
+    yourAnswer: "_",
   });
 
   describe("2. Ramda is designed to operate on which data types?", () => {
@@ -88,25 +76,16 @@ describe("Course 1 - Ramda Basics :: Lesson 1 - Intro", () => {
   });
 
   describe("5. map", () => {
-    describe("5.1 Map is a higher-order-function meaning it...", () => {
-      const statements = {
+    quiz.multipleChoice({
+      id: "1.5.1",
+      question: "5.1 Map is a higher-order-function meaning it...",
+      choices: {
         a: "requires an interface very specific to ramda",
         b: "takes a function as arguments or returns a function",
         c: "renders a verdict in a court of its peers",
         d: "sorts arguments by type",
-      };
-      const yourAnswer = "_"; // a, b, c, or d
-      const answer = quiz.selectAnswer(statements, yourAnswer);
-
-      if (yourAnswer === "_") {
-        it("Select an answer", () => {
-          throw new Error("No answer selected");
-        });
-      }
-
-      it(answer, () => {
-        expect(answer).toContain("function");
-      });
+      },
+      yourAnswer: "_",
     });
 
     describe("5.2 Takes a function and an array and returns an array", () => {
