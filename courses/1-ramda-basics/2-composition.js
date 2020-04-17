@@ -13,7 +13,7 @@ describe("Course 1.2 - Composition", () => {
       c: "the outcome of reducing a list of functions together against a single piece of data",
       d: "the ability to combine functions together to form more complex functions",
     },
-    yourAnswer: "_",
+    yourAnswer: "d",
   });
 
   quiz.multipleChoice({
@@ -25,7 +25,7 @@ describe("Course 1.2 - Composition", () => {
       c: "two functions",
       d: "the last function composed",
     },
-    yourAnswer: "_",
+    yourAnswer: "a",
   });
 
   quiz.multipleChoice({

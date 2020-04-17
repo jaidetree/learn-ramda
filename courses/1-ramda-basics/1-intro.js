@@ -16,24 +16,6 @@ describe("Course 1 - Ramda Basics :: Lesson 1 - Intro", () => {
   yourAnswer: "c"
 });
 
-  //   };
-  //   const yourAnswer = "c"; // a, b, c, or d
-  //   const answer = quiz.selectAnswer(statements, yourAnswer);
-  //
-  //   if (yourAnswer === "_") {
-  //     it("Select an answer", () => {
-  //       expect(yourAnswer).toMatch("a|b|c|d");
-  //     });
-  //   }
-  //
-  //   it(answer, () => {
-  //     expect(yourAnswer + ": " + answer).toBe(quiz.expectChoice(
-  //       statements,
-  //       63,
-  //     ));
-  //   });
-  // });
-
   describe("2. Ramda is designed to operate on which data types?", () => {
     const answers = [
       "arrays",
@@ -105,21 +87,6 @@ describe("Course 1 - Ramda Basics :: Lesson 1 - Intro", () => {
     },
     yourAnswer: "b"
   });
-
-    //   };
-    //   const yourAnswer = "b"; // a, b, c, or d
-    //   const answer = quiz.selectAnswer(statements, yourAnswer);
-    //
-    //   if (yourAnswer === "_") {
-    //     it("Select an answer", () => {
-    //       throw new Error("No answer selected");
-    //     });
-    //   }
-    //
-    //   it(answer, () => {
-    //     expect(answer).toContain("function");
-    //   });
-    // });
 
     describe("5.2 Takes a function and an array and returns an array", () => {
       // fix the broken program...
