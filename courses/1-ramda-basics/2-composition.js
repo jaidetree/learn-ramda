@@ -37,7 +37,7 @@ describe("Course 1.2 - Composition", () => {
       c: "the order by which arguments to each function are supplied",
       d: "the order by which they take data and a list of functions",
     },
-    yourAnswer: "_",
+    yourAnswer: "b",
   });
 
   quiz.multipleChoice({
@@ -49,7 +49,7 @@ describe("Course 1.2 - Composition", () => {
       c: "pipelines",
       d: "brilliant",
     },
-    yourAnswer: "_",
+    yourAnswer: "c",
   });
 
   function add2 (x) {
@@ -68,14 +68,14 @@ describe("Course 1.2 - Composition", () => {
     ]),
     example: "x(y(z))",
     // answer in a js wrapped in a string
-    yourAnswer: "_",
+    yourAnswer: "add2(mult3(3))",
   });
 
   describe("6. What does R.compose do to functions?", () => {
     const __ = () => {};
 
     it("R.compose(add2, mult3)(3) === ???", () => {
-      expect(__(__(3)))
+      expect(add2(mult3(3)))
         // expected, should not be changed
         .toEqual(R.compose(add2, mult3)(3));
     });
@@ -86,7 +86,7 @@ describe("Course 1.2 - Composition", () => {
 
     it("R.pipe(add2, mult3)(3) === ???", () => {
       // Put the correct function names in order to make this test pass
-      expect(__(__(3)))
+      expect(mult3(add2(3)))
         // expected, should not be changed
         .toEqual(R.pipe(add2, mult3)(3));
     });
@@ -110,6 +110,7 @@ describe("Course 1.2 - Composition", () => {
     it("Split names into an array, capitalize both first and last names, sort by last name", () => {
 
       const namePipeline = R.compose(
+        joinNames, sortByLastName, capitalize, splitNames
         // Provide the functions defined above in the correct order here
       );
       expect(namePipeline(input)).toEqual([
@@ -140,6 +141,7 @@ describe("Course 1.2 - Composition", () => {
     it("Split names into an array, capitalize both first and last names, sort by last name", () => {
 
       const namePipeline = R.pipe(
+        splitNames, capitalize, sortByLastName, joinNames
         // Provide the functions defined above in the correct order here
       );
       expect(namePipeline(input)).toEqual([
@@ -193,8 +195,14 @@ describe("Course 1.2 - Composition", () => {
         },
       ];
 
+      const goodOmens = R.filter(R.propEq('title', 'Good Omens'));
+      const sortByCharacterName = R.sortBy(R.prop('character'));
+      const actorNames = R.map(R.prop('name'));
+
       const yourPipeline = R.pipe(
+
         // This one is all you :)
+        goodOmens, sortByCharacterName, actorNames
       );
 
       expect(yourPipeline(input)).toEqual([
