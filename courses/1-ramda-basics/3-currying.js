@@ -27,7 +27,7 @@ describe("Course 1.3 - Currying", () => {
       d: "All of the above",
     },
     yourAnswer: "_",
-  }),
+  });
 
   quiz.multipleChoice({
     id: "3.3",
