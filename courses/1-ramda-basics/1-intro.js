@@ -13,16 +13,16 @@ describe("Course 1 - Ramda Basics :: Lesson 1 - Intro", () => {
       c: "a library, consisting of many pure functions that operate on common JS data structures",
       d: "the pinnacle of functional programming",
     },
-    yourAnswer: "_",
+    yourAnswer: "c"
   });
 
   describe("2. Ramda is designed to operate on which data types?", () => {
     const answers = [
-      "arr___",
-      "___ects",
-      "str____",
-      "num____",
-      "____tions",
+      "arrays",
+      "objects",
+      "strings",
+      "numbers",
+      "functions",
     ];
 
     if (R.any(R.contains("_"), answers)) {
@@ -48,19 +48,19 @@ describe("Course 1 - Ramda Basics :: Lesson 1 - Intro", () => {
       expect(plainInput).toEqual(plainOutput);
 
       // comment out the test that's wrong
-      expect(ramdaOutput).toEqual(ramdaInput);
+      //expect(ramdaOutput).toEqual(ramdaInput);
       expect(ramdaOutput).not.toEqual(ramdaInput);
     });
   });
 
   describe("4. The common building blocks and likely most commonly used functions are", () => {
     const yourAnswers = [
-      "red___",
-      "fil___",
-      "_ap",
-      "i___tity",
-      "_ipe",
-      "com___e",
+      "reduce",
+      "filter",
+      "map",
+      "identity",
+      "pipe",
+      "compose",
     ];
 
     if (R.any(R.contains("_"), yourAnswers)) {
@@ -84,8 +84,9 @@ describe("Course 1 - Ramda Basics :: Lesson 1 - Intro", () => {
         b: "takes a function as arguments or returns a function",
         c: "renders a verdict in a court of its peers",
         d: "sorts arguments by type",
+
       },
-      yourAnswer: "_",
+      yourAnswer: "b",
     });
 
     describe("5.2 Takes a function and an array and returns an array", () => {
@@ -95,7 +96,7 @@ describe("Course 1 - Ramda Basics :: Lesson 1 - Intro", () => {
         const solution = R.map(multiplyBy2, numbers);
 
         function multiplyBy2 (x) {
-          throw new Error("This function is incomplete");
+          return x * 2
         }
         expect(solution).toEqual([
           2,
