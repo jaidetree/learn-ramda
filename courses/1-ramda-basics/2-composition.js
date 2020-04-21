@@ -66,7 +66,7 @@ describe("Course 1.2 - Composition", () => {
       "5. Given add2 and mult3, how do you manually compose them without Ramda?",
       "x(y(3)) = 11"
     ]),
-    example: "x(y(z))",
+    example: "x(y(3))",
     // answer in a js wrapped in a string
     yourAnswer: "add2(mult3(3))",
   });
@@ -112,6 +112,10 @@ describe("Course 1.2 - Composition", () => {
       const namePipeline = R.compose(
         joinNames, sortByLastName, capitalize, splitNames
         // Provide the functions defined above in the correct order here
+        joinNames,
+        sortByLastName,
+        capitalize,
+        splitNames,
       );
       expect(namePipeline(input)).toEqual([
         "Ariyon Bakare",
@@ -143,6 +147,10 @@ describe("Course 1.2 - Composition", () => {
       const namePipeline = R.pipe(
         splitNames, capitalize, sortByLastName, joinNames
         // Provide the functions defined above in the correct order here
+        splitNames,
+        capitalize,
+        sortByLastName,
+        joinNames,
       );
       expect(namePipeline(input)).toEqual([
         "Ariyon Bakare",
@@ -195,14 +203,12 @@ describe("Course 1.2 - Composition", () => {
         },
       ];
 
-      const goodOmens = R.filter(R.propEq('title', 'Good Omens'));
-      const sortByCharacterName = R.sortBy(R.prop('character'));
-      const actorNames = R.map(R.prop('name'));
-
       const yourPipeline = R.pipe(
 
         // This one is all you :)
-        goodOmens, sortByCharacterName, actorNames
+        R.filter(R.propEq("title", "Good Omens")),
+        R.sortBy(R.prop("character")),
+        R.map(R.prop("name")),
       );
 
       expect(yourPipeline(input)).toEqual([

@@ -12,9 +12,9 @@ describe("Course 1 - Ramda Basics :: Lesson 1 - Intro", () => {
       b: "a framework to make websites",
       c: "a library, consisting of many pure functions that operate on common JS data structures",
       d: "the pinnacle of functional programming",
-  },
-  yourAnswer: "c"
-});
+    },
+    yourAnswer: "c"
+  });
 
   describe("2. Ramda is designed to operate on which data types?", () => {
     const answers = [
@@ -84,9 +84,10 @@ describe("Course 1 - Ramda Basics :: Lesson 1 - Intro", () => {
         b: "takes a function as arguments or returns a function",
         c: "renders a verdict in a court of its peers",
         d: "sorts arguments by type",
-    },
-    yourAnswer: "b"
-  });
+
+      },
+      yourAnswer: "b",
+    });
 
     describe("5.2 Takes a function and an array and returns an array", () => {
       // fix the broken program...
@@ -95,8 +96,7 @@ describe("Course 1 - Ramda Basics :: Lesson 1 - Intro", () => {
         const solution = R.map(multiplyBy2, numbers);
 
         function multiplyBy2 (x) {
-        return x * 2
-        throw new Error("This function is incomplete");
+          return x * 2
         }
         expect(solution).toEqual([
           2,
