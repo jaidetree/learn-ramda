@@ -202,6 +202,7 @@ describe("Course 1.2 - Composition", () => {
       ];
 
       const yourPipeline = R.pipe(
+
         // This one is all you :)
         R.filter(R.propEq("title", "Good Omens")),
         R.sortBy(R.prop("character")),

@@ -13,7 +13,7 @@ describe("Course 1.3 - Currying", () => {
       c: "Functions that expect a set number of arguments, and will keep returning functions to collect arguments until it is able to apply them.",
       d: "A feature unique to Ramda to support functional composition by making each function unary meaning it will only take 1 argument at a time before applying it."
     },
-    yourAnswer: "_",
+    yourAnswer: "c",
   });
 
   quiz.multipleChoice({
@@ -26,7 +26,7 @@ describe("Course 1.3 - Currying", () => {
 
       d: "All of the above",
     },
-    yourAnswer: "_",
+    yourAnswer: "d",
   });
 
   quiz.multipleChoice({
@@ -36,7 +36,7 @@ describe("Course 1.3 - Currying", () => {
       a: "No. Ramda's functions can take multiple arguments at a time up until the required arguments are met.",
       b: "Yes. You can only specify one argument at a time to any curried Ramda function.",
     },
-    yourAnswer: "_",
+    yourAnswer: "a",
   });
 
   quiz.multipleChoice({
@@ -48,7 +48,7 @@ describe("Course 1.3 - Currying", () => {
       c: "The number of args, or .length of the original function.",
       d: "It must be manually specified, JS does not allow you to inspect how many arguments a function takes."
     },
-    yourAnswer: "_",
+    yourAnswer: "c",
   });
 
   quiz.multipleChoice({
@@ -60,7 +60,7 @@ describe("Course 1.3 - Currying", () => {
       c: "A function that takes only the mapper function argument",
       d: "A function that takes only the data implying R.identity as the mapper function argument.",
     },
-    yourAnswer: "_",
+    yourAnswer: "b",
   });
 
   quiz.multipleChoice({
@@ -70,7 +70,7 @@ describe("Course 1.3 - Currying", () => {
       a: "No. This is only a higher-order function.",
       b: "Yes. It is a higher-order function and could be considered manually curried."
     },
-    yourAnswer: "_",
+    yourAnswer: "b",
   });
 
   quiz.multipleChoice({
@@ -82,7 +82,7 @@ describe("Course 1.3 - Currying", () => {
       c: "Composing functions together that don't create a heavy set of stack points for JS's garabge collector to clean up and release allocated memory.",
       d: "Combining composition and currying to write useful functions that don't name any argument variables and declaratively describes the intended behavior."
     },
-    yourAnswer: "_",
+    yourAnswer: "d",
   });
 
   quiz.multipleChoice({
@@ -94,27 +94,27 @@ describe("Course 1.3 - Currying", () => {
       c: "Yes. You can supply an argument like null to act as a placeholder.",
       d: "Yes. You can create a custom function to wrap a curried function to skip arguments.",
     },
-    yourAnswer: "_",
+    yourAnswer: "a",
   });
 
   describe("8. Ramda's curried math functions", () => {
     it("8.1 mult2(3) === 6", () => {
-      const mult2 = R.__(2);
+      const mult2 = R.multiply(2);
 
       expect(mult2(3)).toEqual(6);
     });
     it("8.2 add2(3) === 5", () => {
-      const add2 = R.__(2);
+      const add2 = R.add(2);
 
       expect(add2(3)).toEqual(5);
     });
     it("8.3 sub2(3) === -1", () => {
-      const sub2 = R.__(2);
+      const sub2 = R.subtract(2);
 
       expect(sub2(3)).toEqual(-1);
     });
     it("8.4 div2(4) === 0.5", () => {
-      const div2 = R.__(2);
+      const div2 = R.divide(2);
 
       expect(div2(4)).toEqual(0.5);
     });
@@ -128,7 +128,7 @@ describe("Course 1.3 - Currying", () => {
         c: 3,
       };
       // Replace null with the expected value to make this work.
-      const get = R.prop(null, data);
+      const get = R.prop(R.__, data);
 
       expect(get("a")).toEqual(1);
       expect(get("b")).toEqual(2);
@@ -139,7 +139,7 @@ describe("Course 1.3 - Currying", () => {
   describe("9. Create a half function using curried Ramda functions", () => {
     it("half(4) === 2", () => {
       // Replace null with your function definition
-      const half = null;
+      const half = R.divide(R.__, 2);
 
       expect(half(4)).toEqual(2);
     });
@@ -157,6 +157,8 @@ describe("Course 1.3 - Currying", () => {
       return num;
     }
 
+    // const add3 = R.add(3);
+
     // Notes:
     // - Split the input string into an array of letters
     //   HINT: LETTERS.indexOf("b") => 1;
@@ -166,7 +168,11 @@ describe("Course 1.3 - Currying", () => {
 
     it("Use curred functions to encode messages", () => {
       const encode = R.pipe(
+        R.map(R.indexOf(R.__, LETTERS)),
+        R.join("")
+
       );
+
 
       expect(encode("ramda rules")).toEqual("18113410182112519");
     });
