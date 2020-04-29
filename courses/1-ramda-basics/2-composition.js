@@ -110,7 +110,6 @@ describe("Course 1.2 - Composition", () => {
     it("Split names into an array, capitalize both first and last names, sort by last name", () => {
 
       const namePipeline = R.compose(
-        joinNames, sortByLastName, capitalize, splitNames
         // Provide the functions defined above in the correct order here
         joinNames,
         sortByLastName,
@@ -145,7 +144,6 @@ describe("Course 1.2 - Composition", () => {
     it("Split names into an array, capitalize both first and last names, sort by last name", () => {
 
       const namePipeline = R.pipe(
-        splitNames, capitalize, sortByLastName, joinNames
         // Provide the functions defined above in the correct order here
         splitNames,
         capitalize,
